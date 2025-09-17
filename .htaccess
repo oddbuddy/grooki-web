@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect HTTP to HTTPS and non-www to www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.grooki.com%{REQUEST_URI} [L,R=301]
+
+# Disable directory listings
+Options -Indexes
